@@ -11,3 +11,44 @@ show tables;
 5.查询
 select *from 表名;
 select column1,column2...from 表名 where column名字=值 order by column名字 asc(升续）或者desc(降续);
+
+6.创建数据库
+create table 表名;
+
+7.设置数据库字符集
+create database 数据库名字 character set UTF8;(注意这里不是UTF-8)
+
+8.判断数据库是否存在
+ create database if not exists 数据库名字;
+
+9.显示数据库字符集
+show character set;
+
+10.字符集校验规则
+create database if not exists mydb3 character set utf8 collate utf8_general_ci;
+
+11.删除数据库
+drop database if exists 数据库名;
+
+12.查看创建数据库的定义;
+show create database mydb2;
+
+13.修改数据库字符集
+alter database  mydb2 character set utf8;
+
+14.插入数据
+insert into 表明(列名) values(值);
+
+15.备份数据库
+mysqldump -u root -p 数据库名 > 路径以.sql结尾
+这个命令与mysql命令同级，所以应该exit后再用mysqldump命令
+
+16.mysql下恢复数据
+
+source d:/mydb.sql;
+
+17.mysql中有date类型
+
+create table user(id int,name varchar(20),birthday date);
+
+18.desc user;查看表结构
