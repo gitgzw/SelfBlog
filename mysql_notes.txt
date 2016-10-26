@@ -1,0 +1,13 @@
+1.创建数据库(注意分号)
+create database 数据库名;
+2.查看数据库
+show databases;
+3.使用数据库
+use 数据库名;
+
+4.查看表
+show tables;
+
+5.查询
+select *from 表名;
+select column1,column2...from 表名 where column名字=值 order by column名字 asc(升续）或者desc(降续);
