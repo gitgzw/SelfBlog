@@ -1,0 +1,6 @@
+1.增加字段
+alter table table_name add birthday date,add address varchar(11);
+
+2.时间类型
+
+date 日期 datetime 日期 时间 timestamp 默认当前日期 时间
