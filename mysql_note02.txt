@@ -4,3 +4,46 @@ alter table table_name add birthday date,add address varchar(11);
 2.时间类型
 
 date 日期 datetime 日期 时间 timestamp 默认当前日期 时间
+
+3.int(5)
+int 默认为5位，如果插入值小于5位，左对齐，如果大于5位，正常显示。
+
+4.float(6,2)
+表示整数位和小数位一共6位数，小数四舍五入
+
+5.修改列
+alter table employee modify job varchar(60);
+
+6.删除列
+alter table employee drop job;
+
+7.重命名表
+rename table employee to user;
+
+8.修改表字符集
+alter table user character set gbk;
+
+9.MySQL分为两个版本
+MyISAM数据库引擎：不支持多表查询，查询非常快
+InnoDB：支持表间查询，也支持事务
+
+10.插入null
+不写字段名字，自动为NULL
+列名对应value为NULL
+
+11.更新
+update user set name='jack';
+update user set name='jack' where number=18;
+
+12.原有薪水+1000
+update user set salary=salary+1000 where name='jack';这句话不会报错，有返回值
+
+13.删除记录 一行一行删除，可按条件删除
+delete from user;删除所有记录
+delete from user where name='jack';
+
+14.使用 truncate删除  复制表结构->drop整表->自动恢复表结构，不能按条件删除，类似drop
+truncate table user;
+
+15.删除表 删除表本身，表结构不存在
+drop table user;
