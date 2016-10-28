@@ -1,1 +1,58 @@
 1.删除记录时一定要注意表间的关联关系
+
+2.查询
+select 字段 from 表名;
+
+3.过滤重复数据
+select distinct enligsh from student;distinct 只能放在列的前面
+
+4.加数值
+select english+10 from student;
+
+5.别名
+select name as 姓名 from student;
+
+6.统计总分
+select name,math+english+chinese as 总分 from student;
+
+7.english大于90分
+select *from student where english>90;
+
+8.between...and
+select *from student where english between 80 and 95;
+
+9.in 或者 not in
+select *from student where english in(85,98);查询英语成绩为85或者98
+
+10.like
+select *from where name like '李%';首个字为李的
+select *from where name like '%李';最后为李的
+select *from where name like '%李%';中间含有李的
+
+11.is not NULL
+select *from student where math is not NULL;成绩不为空
+
+12.排序,order by 必须放在最后
+select *from student order by math asc;升续，从小到大
+select *from student order by math desc;降续，从小到大
+
+13.count()函数，做统计使用，不能把NULL统计进去
+select count(*) from student;返回总数
+
+select count(*) from student where math>85;
+
+select count(name) as 总数 from student where math>85;
+
+14.sum()函数，统计总和，统计数值，不要统计非数值，否则，返回0
+select sum(math) as 数学总分 from student;
+
+15.统计平均分
+select sum(math)/count(math) as 数学平均分 from student;
+
+
+
+
+
+
+
+
