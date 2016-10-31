@@ -1,0 +1,6 @@
+1.alias用法
+数据库备份
+mysqldump -u root -p spdb1 > /home/yy.sql
+
+别名
+alias llh='ls -l /home' 输入llh就可以执行

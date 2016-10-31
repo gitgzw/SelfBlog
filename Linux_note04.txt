@@ -12,3 +12,60 @@ date 显示当前时间
 2)新建.sh文件
 crontab -r 删除任务调度
 crontab -l 列出当前有哪些任务调度
+
+3.显示后台进程
+ps -x显示后台进程运行的参数
+ps -aux 全面
+
+kill 进程号
+kill -9 进程号 强制删除
+
+killall 把进程以及其子进程全部杀掉
+
+4.top命令
+zombie 僵尸进程
+
+5.追踪路由
+traceroute
+
+chown changeowner
+chgrp changegroup
+一个.代表当前目录，..代表上一级目录
+&表示以后台的方式启动
+
+6.cp -rf dir1 dir2 全覆盖，不询问
+Ctrl+c 返回命令
+
+7.ln (link命令)
+ln -s 源 目标
+
+8.执行脚本
+bash 
+tcsh 
+sh
+source
+./test.sh（在当前目录下）
+
+9.grep查找文件的关键字
+grep 星期 test.txt
+grep -n 星期 test.txt （在第几行）
+
+10.> >> < <<
+
+11.脚本首先要有执行权限
+
+12.用户登录后自动执行的shell脚本文件
+,bashrc 位于主目录下
+它之前执行系统的脚本在/etc/bashrc主要是基本配置数据
+.bash_profile 位于主目录下
+它之前它之前执行系统的脚本在/etc/profile 主要是配置环境变量
+.bash_profile 用户配置用户环境变量
+profile 配置系统变量
+
+14.export
+当临时加载路径的时候，使用export
+
+echo,输出
+
+15.通配符 *和？
+

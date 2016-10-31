@@ -71,9 +71,15 @@ rpm -e jdk 卸载
 rpm -u 软件名 升级软件
 
 rpm -e --nodeps(nodependence) 软件名
-netstat -an 查看端口监听
+netstat -an 查看进程
+netstat -anp 查看进程以及端口
 
 setup 可以查看系统服务
+cd change directory
+单独一个cd命令，回到用户的目录下
+rmdir 删除
+mkdir 新建
+
 
 
 
