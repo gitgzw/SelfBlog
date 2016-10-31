@@ -1,3 +1,28 @@
 1.表关联
 1）一对多，外键放在多
 2）多对多，拆分成两个一对多
+
+2.jdbc创建和删除表
+// Class.forName("com.mysql.jdbc.Driver");
+		DriverManager.registerDriver(new Driver());
+		Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb2", "root",
+				"root");
+		System.out.println(connection != null ? "取得连接" : "无法连接");
+		String sql = "create table if not exists user(id int primary key auto_increment,name varchar(20) not null)";
+		Statement stmt = (Statement) connection.createStatement();
+		String dropSql="drop table if exists user;";
+		//create和drop都返回0,无论成功与否
+		int isSucc = stmt.executeUpdate(/*sql*/dropSql);
+		System.out.println(""+isSucc);
+//		System.out.println(isSucc == 0? "创建表成功" : "无法创建表");
+		System.out.println(isSucc == 0? "删除表成功" : "无法删除表");
+
+3.odbc使用微软驱动，驱动很多种
+Oracle—jdbc:oracle:thin:@localhost:1521:sid
+SqlServer—jdbc:microsoft:sqlserver://localhost:1433; 
+地址简写 jdbc:mysql:///mydb2
+
+4.使用columnIndex容易出错，mysql大小写无所谓
+依次按resultSet->statement->connection关闭
+
+5.sql注入问题，由非法字符

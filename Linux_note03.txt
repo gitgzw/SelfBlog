@@ -1,0 +1,79 @@
+1.硬盘分区
+分为基本分区和扩展分区
+基本分区可以马上使用但不能再分区，扩展分区必须再分区后才能使用，再分下去后逻辑分区
+
+主分区+扩展分区<4
+
+无论有几个分区，分给哪个目录使用，归根结底只有一个目录，一个独立且唯一的文件结构
+
+2.查看Linux系统分区情况，一般挂4个硬盘
+fdisk -l
+
+/dev/sda1
+/dev/sda2
+/dev/sda3
+s代表SATA硬盘
+a代表第一块硬盘，如果有两块则用b表示，
+1,2,3,4表示主分区或扩展分区，从第五个开始为逻辑分区
+
+3.boot挂在分区
+df 目录跟分区的关系
+
+4.umount 目录 切断目录跟分区的关系
+
+mount /dev/sda1 /test/将分区1挂载到Test目录下
+
+df -h 硬盘被使用多少
+
+5.Linux安装的时候，分区是关键
+
+/boot 300M
+swap 交换分区，一般是你物理内存的2倍，但不要大于256M
+
+6.Shell提供了丰富的变量和丰富的程序控制结构
+
+centOS有三种：
+/bin/ssh
+/bin/bash
+/bin/tcsh
+
+7.查看目前使用的哪种shell
+env  该命令可以显示当前操作系统的环境变量
+chsh（change shell） -s  输入新的shell
+
+8.命令补全功能
+m 按两下tab键 会自动补全
+man mkdir 命令详情
+命令后加|more表示分页
+history 10表示最近10个命令
+!5此项说明执行历史编号为5的命令
+!ls 此项说明执行最后一次以“ls”开头的命令
+ifconfig 查看ip地址
+
+9.网络协议，tcp/ip，是一组协议
+tcp/ip，udp（用户数据包协议），arp（地址解析），rarp（地址反解析）等协议
+
+10.IP地址32位，4个字节
+tracert www.baidu.com 可以查看网管个数
+
+11.127 后边任意值（除去全零全1） 本机回路
+
+12.在Linux中，所有设备都是文件
+
+13.RPM常用命令
+
+查询Linux安装了哪些RPM软件 rpm -qa rpm -q mysql
+安装rpm包  rpm -i rpm包全路径名称 没有进度
+
+rpm -ivh rpm包全路径名称 有进度
+
+rpm -e jdk 卸载
+rpm -u 软件名 升级软件
+
+rpm -e --nodeps(nodependence) 软件名
+netstat -an 查看端口监听
+
+setup 可以查看系统服务
+
+
+

@@ -1,0 +1,14 @@
+1.任务调度使用crontab
+
+1.设置任务
+crontab -e
+date 显示当前时间
+0 2 * * * date >> /home/mydate1 每天凌晨两点
+0表示分钟 2表示小时 *表示年 月 星期几 
+>代表写 >>表示追加
+
+2.调度多个任务
+1）crontab -e 
+2)新建.sh文件
+crontab -r 删除任务调度
+crontab -l 列出当前有哪些任务调度
