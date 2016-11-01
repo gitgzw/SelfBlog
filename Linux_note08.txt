@@ -1,0 +1,58 @@
+1.shell
+readonly 只读变量
+unset 删除变量
+
+2.字符串
+
+拼接字符串
+your_name="qinjx"
+greeting="hello, "$your_name" !"
+greeting_1="hello, ${your_name} !" 相等
+echo $greeting $greeting_1
+
+获取字符串长度
+string="abcd"
+echo ${#string} #输出 4
+
+提取子字符串
+以下实例从字符串第 2 个字符开始截取 4 个字符：
+string="runoob is a great site"
+echo ${string:1:4} # 输出 unoo
+
+查找子字符串
+查找字符 "i 或 s" 的位置：
+string="runoob is a great company"
+echo `expr index "$string" is`  # 输出 8
+注意： 以上脚本中 "`" 是反引号，而不是单引号 "'"，不要看错了哦。
+
+3.shell基本运算符
+原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。
+expr 是一款表达式计算工具，使用它能完成表达式的求值操作。
+例如，两个数相加(注意使用的是反引号 ` 而不是单引号 ')：
+
+
+反引号位 (`) 位于键盘的Tab键的上方、1键的左方。注意与单引号(')位于Enter键的左方的区别。
+　　在Linux中起着命令替换的作用。命令替换是指shell能够将一个命令的标准输出插在一个命令行中任何位置。
+　　如下，shell会执行反引号中的date命令，把结果插入到echo命令显示的内容中。
+　　[root@localhost sh]# echo The date is `date`
+　　The date is 2011年 03月 14日 星期一 21:15:43 CST
+
+val=`expr 2 + 2`
+echo "两数之和为 : $val"
+注意+号前后有空格
+
+表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。
+完整的表达式要被 ` ` 包含，注意这个字符不是常用的单引号，在 Esc 键下边。
+
+4.布尔运算负
+! 非运算负
+-a and 与运算符
+-o or 或运算符
+
+5.字符串运算符
+= 相等返回true
+!= 
+-z zero 字符串长度为0 返回true
+-n 字符串长度不为0 返回true
+str 检测字符串是否为空，不为空返回true
+

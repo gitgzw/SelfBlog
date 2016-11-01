@@ -1,0 +1,81 @@
+1.select语句
+echo "Your choice?"
+select var in "a" "b" "c";do
+break
+done
+echo var
+
+2.shell种类
+ash
+bsh->bash
+csh->tcsh c语言的特点
+ksh IBM
+
+3.Linux Shell 环境中的输入输出重定向，用符号<和>来表示。0、1和2分别表示标准输入、标准输出和标准错误。
+1.重定向标准输出到文件：
+cat foo > foo.txt
+2.重定向标准错误到文件
+cat foo 2> foo.txt
+3.重定向标准输出到标准错误
+cat foo 1>&2
+4.重定向标准错误到标准输出
+cat foo 2>&1
+5.重定向标准输出，标准错误到同一个文件
+cat foo > foo.txt 2>&1或cat foo &> foo.txt
+这里第个顺序很重要，先把标准输出重定向到文件，再把标准错误输出到标准输出，因为标准输出已经重定向到文件，所以标准错误与重定向到文件。
+>&与&>效果相同
+
+6.重新定义PATH
+PATH=$PATH:/tmp/ddd
+把tmp下的ddd文件夹路径添加到PATH中
+
+7.export AAA=aaa
+AAA就成为环境变量
+
+8.快捷键
+Ctrl+L Ctrl+C Ctrl+Z 
+
+9.历史命令保存在.bash_history
+set |grep HIS
+
+history -c 清楚历史
+Ctrl+R在history中查询指令
+！调用历史指令
+!$ 前面命令中的最后一项内容
+
+10[abc]表示a或b或c开头的文件
+^表示非
+{}表示枚举
+touch {a,b,c}-{1,2,3}创建9个文件
+%1 表示第一个任务
+&表示运行后台
+11.root下aa()表示aa是一个函数
+
+12.单引号把所有的符号都当成字符
+双引号不是
+反引号
+\脱义符
+[ ] 有空格代表true or false
+-f代表File文件
+-d代表目录 
+[ -f test.sh ] && echo ok 前边为true 执行&&后边
+[ -f test.sh ] || echo ok 前边为false 执行||后边
+
+13.bash配置文件
+/etc/profile 所有账号，公共
+~/.bash_profile 
+~/.bashrc
+/etc/bashrc
+
+su 执行bashrc
+su - 都执行
+exit 执行 ~/.bash_logout
+
+which startx查看startx位置
+
+14.$#表示参数
+
+15.shell脚本交互
+read -p 先打印出来
+printf 也是打印
+-r 代表读
