@@ -1,0 +1,11 @@
+点击按钮触发三个事件：
+1.按下
+2.滑动
+3.手指抬起
+触摸事件类-MotionEvent
+
+事件传递返回值：true，拦截。false，不拦截
+事件处理返回值：true，处理了。false，给上级处理
+
+ViewGroup中有三个方法dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent
+View中有dispatchTouchEvent、onTouchEvent
