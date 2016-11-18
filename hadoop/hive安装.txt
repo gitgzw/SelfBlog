@@ -1,0 +1,9 @@
+1.首先要启动hadoop
+2.http://www.myexception.cn/operating-system/2092498.html
+3.hive-site.xml增加
+<property>
+<name>system:java.io.tmpdir</name>
+<value>/software/apache-hive-2.1.0/iotmp</value>
+</property>
+4.hive.site.xml去掉
+${system:user.name}中的system:

@@ -1,0 +1,7 @@
+1.元数据
+文件名 {BLK_1,BLK_2,BLK_3} {BLK_1:DN1,DN2,DN3...}{BLK_2:DN1,DN2,DN3...} {BLK_3:DN1,DN2,DN3...}
+client请求NameNode，然后返回元数据信息，找一个最近的管道下载
+2.上传文件
+
+3.HBase 是
+

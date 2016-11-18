@@ -1,0 +1,65 @@
+1.hdfs两个角色
+NameNode：是整个文件系统的管理节点。它维护着整个文件系统的文件目录树，文件/目录的元信息和每个文件对应的数据块列表。接收用户的操作请求
+文件包括：
+1.fsimage 元数据镜像文件，存储某一时段NameNode内存元数据信息。
+2.edits：操作日志文件
+3.fstime：保存最近一次checkpoint的时间
+以上都保存在Linux文件系统中
+DataNode：负责存储，负责运输存储，还要进行冗余处理，NameNode在其他DataNode上进行复制备份，以流水线的方式进行写数据，并不是客户端写多次
+
+2.上传数据的时候要进行分块，Hadoop1.0为64M，Hadoop2.0为128M，写满一个块申请一个
+hdfs只是一种分布式管理系统，适用于一次写入多次查询的情况，不支持并发写的情况，小文件不合适
+
+3.hadoop fs -ls /  查看hdfs根目录
+hadoop fs -ls -R 递归查询，可以看到文件及子文件
+hadoop fs -ls -h 查看大小 人类可读
+hadoo fs  -mkdir /myhadoop 创建myhadoop 文件夹
+hadoo fs -moveFromLocal 剪切
+hadoo fs -mv 移动
+hadoo fs -rm -r 删除
+hadoo fs -text 显示内容
+hadoo fs -tail 查看尾部
+hadoo fs -touchz 创建文件
+hadoo fs -chmod -R -x 子文件和子文件夹去掉执行权限
+
+hdfs dfs -ls 2.0后新出的
+
+4.MetaData 元数据信息放在内存中
+为了数据安全，内存一份，磁盘一份
+
+5.SecondaryNameNode
+HA（高可靠性）的一个解决方案，但不支持热备，配置即可
+执行过程：从NameNode上下载元数据信息（fsimage，edits），然后把二者合并，生成新的fsimage，在本地保存，并将其推送到NameNode，替换旧的fsimage
+
+6.HDFS java接口 
+上传文件
+FileSystem fs=FileSystem.get(new URI("hdfs://172.168.0.103:9000"), new Configuration());
+InputStream is=fs.open(new Path("/jdk1.8"));
+	    OutputStream os=new FileOutputStream("/jdk1.8.tar.gz");
+	    IOUtils.copyBytes(is, os, 4096,true);
+下载文件
+fs.copyToLocalFile(new Path("/jdk1.8"), new Path("/root/jdk"));
+
+删除 
+fs.delete(new Path(),true);//递归删除 recursive
+
+7.Linux命令打开软件
+然后用ctrl+z挂起，然后用bg 1 进入后台
+jobs查看进程
+
+8.Remote Procedure Call 远程过程调用协议
+webservice 是RPC的一种方式
+是不同进程之间的方法调用
+
+9.FileSystem类是根据一系列的配置，生成了一个实现类
+DistributedFileSystem 通过反射得到实例对象，持有了DFSClient对象，DFSClient通过RPC机制持有了ClientProtocol对象
+
+
+10.代理模式、装饰模式对方法增强   继承是对类增强
+
+11.Map将任务分割成多个小任务，然后交给Reduce合并计算
+输入和输出都是key、value形式
+
+12.shuffle
+
+

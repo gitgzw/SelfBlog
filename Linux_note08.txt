@@ -56,3 +56,9 @@ echo "两数之和为 : $val"
 -n 字符串长度不为0 返回true
 str 检测字符串是否为空，不为空返回true
 
+6.wc Word count 统计文件有多少行，多少字
+
+7.ps process snapshot 进程快照
+
+8.Unix shell Resource
+

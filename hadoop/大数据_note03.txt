@@ -1,0 +1,57 @@
+1.map任务处理
+读取内容，一行解析成key、value，一个key、value执行一次map方法
+
+2.reduce任务处理
+shuffle已经完成了分组排序
+
+3.hdfs不适用场景
+低延迟的数据访问，10ms以下可以用hbase
+太多小文件
+多处写和随时修改  不支持多处写以及通过偏移量随机修改
+
+4.JPDA Java Platform Debugger Architecture
+
+5.Java先执行静态类型，静态类型从上到下执行
+
+6.mapreduce 不会读取以_开头的文件
+
+7.combiner是一个特殊的reducer，在map端合并，减少了数据在网络之间的传输，可有可无，也可以与reducer功能不一样，例如数据过滤
+
+8.一个块对应一个切片，对应一个mapper
+
+9.云主机要/etc/hosts里面要配置的是内网IP地址和主机名的映射关系
+
+10.zookeeper 协调active和standby的NameNode
+奇数台机器，只要一半以上的机器就可以运行
+两种类型，leader和follower，当leader宕机后，从follower选择一台
+
+11.为什么要用zookeeper？
+提供通用的分布式锁服务，用以协调分布式应用，保证一个NameService里边只用一个活跃NameNode
+也可以保证HBase集群只有一个活跃的HMaster
+特性：
+简单的、富有表现力的、高可用性、采用松耦合交互方式、是一个资源库
+高内聚松耦合
+
+12.zoo_example.conf改为 zoo.conf
+tickTime cs通信心跳时间，长连接
+initLimit:LF初始通信时限 Leader Follower，做多能容忍心	  跳数时间
+syncLimit: LF同步通信时间，为次数
+
+dataDir：数据文件目录 指定一个非tmp目录
+
+clientPort 默认为2181
+
+服务器名称与地址
+格式为
+sever.N=hostname:
+
+server.1=hadoop01:2888:3888
+
+13.hadoop集群
+NameService:有两个NameNode 一个active 一个standby
+有zookeeper选择，一个active宕机，standby会被激活
+
+14.FailoverController 监控两个NameNode，如果active NameNode宕机，ZK通知另一个FailoverController，使其控制的NameNode激活
+
+JournalNode来存放 NameNode，实时同步Standby NameNode
+

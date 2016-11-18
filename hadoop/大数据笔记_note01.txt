@@ -1,0 +1,38 @@
+1.Hadoop擅长离线分析
+2.YARN，Storm可以运行在上边
+3.HBase,Hive,Kafka,Spark
+4.Hbase实现毫秒计算，是一个数据库
+5.Cloudera(CDH)在Apache的基础上打上了一些patch
+6.HDP（Hortonworks Data Platform）
+7.HDFS:Hadoop Distributed File System 分布式文件系统
+8.MapReduce:并行计算框架
+9.YARN：Yet Another Resource Negotiator 资源管理调度系统
+10.21是FTP端口，22是SMTP端口
+
+11.Hadoop配置要修改四个文件
+Hadoop下etc文件夹存放配置文件
+share 依赖的Java包
+
+12.YARN的老大 ResourceManager
+YARN的小弟 NodeManager
+SecondaryNameNode是NameNode的助理
+NameNode可以有多个
+hdfs 小弟Datenode
+
+http://192.168.8.118:50070 （HDFS管理界面）
+		http://192.168.8.118:8088 （MR管理界面）
+
+13.jps java process service
+
+14.mapreduce 统计单词个数 more 文件名
+
+15.hadoop jar hadoop-mapreduce-examples-2.7.3.jar wordcount hdfs://172.168.0.103:9000/words hdfs://172.168.0.103:9000/wdcount
+
+16.ssh免密登录 secure shell
+
+例如 ssh 主机名
+exit退出登录
+
+17.Linux以.开始的文件夹是隐藏文件
+
+
