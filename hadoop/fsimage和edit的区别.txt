@@ -1,0 +1,5 @@
+fsimage保存了最新的元数据检查点。
+
+edits保存自最新检查点后的命名空间的变化。
+
+从最新检查点后，hadoop将对每个文件的操作都保存在edits中，为避免edits不断增大，secondary namenode就会周期性合并fsimage和edits成新的fsimage，edits再记录新的变化

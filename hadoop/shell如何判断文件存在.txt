@@ -1,0 +1,8 @@
+#!/bin/sh 
+
+myFile="/var /log/httpd/access.log" 
+ if [ ! -e "$myFile" ]; then 
+     touch "$myFile" 
+ fi 
+
+-e和-f的区别是，-f代表常规文件（regular file），-e代表所有任何类型文件

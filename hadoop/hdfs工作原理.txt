@@ -1,0 +1,1 @@
+什么是HDFS？Hadoop Distributed File System，字面意思，Hadoop分布式文件系统，通俗的讲，就是可以将不同节点的设备用来存储。它分为两个部分：NameNode和DateNode，NameNode相当于一个领导，它管理集群内的DataNode，当客户发送请求过来后，NameNode会根据情况指定存储到哪些DataNode上，而其本身自己并不存储真实的数据。那NameNode怎么知道集群内DataNode的信息呢？DataNode发送心跳信息给NameNode。

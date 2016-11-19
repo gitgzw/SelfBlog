@@ -1,0 +1,5 @@
+MapReduce是hadoop的核心组件之一，hadoop要分布式包括两部分，一是分布式文件系统hdfs,一部是分布式计算框，就是mapreduce,缺一不可，也就是说，可以通过mapreduce很容易在hadoop平台上进行分布式的计算编程
+
+ Combiner 节点 负责完成上面提到的将同一个map中相同的key进行合并，避免重复传输，从而减少传输中的通信开销。
+
+2） Partitioner节点 负责将map产生的中间结果进行划分，确保相同的key到达同一个value.
