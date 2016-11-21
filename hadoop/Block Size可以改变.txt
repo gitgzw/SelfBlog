@@ -1,0 +1,1 @@
+它是可以被修改的Hadoop的基础配置文件是hadoop-default.xml，默认建立一个Job的时候会建立Job的Config，Config首先读入hadoop-default.xml的配置，然后再读入hadoop-site.xml的配置(这个文件初始的时候配置为空)，hadoop-site.xml中主要配置需要覆盖的hadoop-default.xml的系统级配置

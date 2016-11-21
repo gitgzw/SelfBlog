@@ -1,0 +1,8 @@
+hadoop 中数据倾斜会极大影响性能的一个背景是mapreduce 框架中总是不分条件的进行sort . 在通用情况下map sort + partition +reduce sort 可以得到结果，但是这个过程不一定是最优的.  对于关系型计算,其中数据倾斜影响最大的地方在reduce 的sort , reduce 处理的数据量的大小如果超过给定的reduce jvm 的大小的2倍不到的阈值的时候(这个阈值是我猜测的，具体以实际监控运行情况为准)，reduce 端会发生multi-pass merge sort 的情况， 这个时候观察这些运行较慢的reduce task 的metrics 会发现reduce 跟IO 相关的metrics 会比其他reduce 大很多. 具体的细节参考今年hadoop summit 上Todd 的performance tuning 的ppt
+
+
+这种在reduce 端不分条件的排序只是hadoop 是这种实现，并不是mapreduce 框架一定需要排序，其他的mapreduce 实现或者其他的分布式计算框架可能在reduce 上的这种瓶颈会小一些, 比如shark 里面的group by 就是基于hash 而不是sort 的.
+
+ 
+
+    对于关系型的计算中常见的数据倾斜有两种：group by 和 join , 其他有可能的有

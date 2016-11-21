@@ -1,0 +1,11 @@
+一 单机模式standalone
+单机模式是Hadoop的默认模式。当首次解压Hadoop的源码包时，Hadoop无法了解硬件安装环境，便保守地选择了最小配置。在这种默认模式下所有3个XML文件均为空。当配置文件为空时，Hadoop会完全运行在本地。因为不需要与其他节点交互，单机模式就不使用HDFS，也不加载任何Hadoop的守护进程。该模式主要用于开发调试MapReduce程序的应用逻辑。
+
+
+二 伪分布模式安装
+tar xzvf hadoop-0.20.2.tar.gz
+Hadoop的配置文件：
+conf/hadoop-env.sh  配置JAVA_HOME
+core-site.xml  配置HDFS节点名称和地址
+hdfs-site.xml  配置HDFS存储目录，复制数量
+mapred-site.xml    配置mapreduce的jobtracker地址

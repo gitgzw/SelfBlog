@@ -1,0 +1,2 @@
+ClusterID
+添加了一个新的标识符ClusterID用于标识集群中所有的节点。当格式化一个Namenode，需要提供这个标识符或者自动生成。这个ID可以被用来格式化加入集群的其他Namenode

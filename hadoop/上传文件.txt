@@ -1,0 +1,5 @@
+Client 端将文件切分为 Block，依次上传
+
+Client向NameNode发起文件写入的请求。
+NameNode根据文件大小和文件块配置情况，返回给Client它所管理部分DataNode的信息。
+Client将文件划分为多个Block，根据DataNode的地址信息，按顺序写入到每一个DataNode块中

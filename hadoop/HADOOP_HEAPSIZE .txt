@@ -1,0 +1,1 @@
+hadoop为各个守护进程(namenode,secondarynamenode,jobtracker,datanode,tasktracker)统一分配的内存在hadoop-env.sh中设置，参数为HADOOP_HEAPSIZE，默认为1000M
