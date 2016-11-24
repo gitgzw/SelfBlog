@@ -1,0 +1,1 @@
+insert user(name,class) value('Jack','Èý°à');

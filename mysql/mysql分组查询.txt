@@ -1,0 +1,13 @@
+select class from user group by class; 
+select class,GROUP_CONCAT(name) from user group by class;分组展示姓名
+
+select GROUP_CONCAT(name),class from user group by class;跟上边显示不一样
+
+select class as 班级,name as 姓名,max(scores) as 最高分 from user group by class;
+
+找出最高分再求和
+
+select sum(maxscores) as 最高分之和 from (select max(scores) as maxscores from user group by class) as t; 一定要有as t 以及maxscores 前后要一致 ，子查询出来的结果相当于一个表，然后再查询
+
+找出最低分
+select sum(minscores) as 最高分之和 from (select min(scores) as minscores from user group by class) as t;

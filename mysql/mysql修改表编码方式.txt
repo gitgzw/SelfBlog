@@ -1,0 +1,6 @@
+查看
+show variables like "%char%";
+show create table user;
+
+修改
+alter table user convert to character set utf8;注意不是utf-8

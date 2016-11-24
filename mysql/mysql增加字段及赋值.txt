@@ -1,0 +1,2 @@
+alter table user add class varchar(15);
+update user set class='Èı°à' where id=1;

@@ -1,0 +1,4 @@
+map端join
+map启动之前先调用setup方法，setup方法只调用一次，map方法while循环
+
+setup方法将缓存文件信息放入一个HashMap中，然后在map方法中拼接
