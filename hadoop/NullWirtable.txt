@@ -1,0 +1,1 @@
+key或value为空则用NullWritable ，值则用NullWritable.get()填充

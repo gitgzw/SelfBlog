@@ -1,0 +1,2 @@
+combiner是一个Reducer，combiner的输出是Reducer的输入，
+shuffle将map的结果分组，排序后交给reducer

@@ -10,4 +10,6 @@ select class as 班级,name as 姓名,max(scores) as 最高分 from user group by class
 select sum(maxscores) as 最高分之和 from (select max(scores) as maxscores from user group by class) as t; 一定要有as t 以及maxscores 前后要一致 ，子查询出来的结果相当于一个表，然后再查询
 
 找出最低分
-select sum(minscores) as 最高分之和 from (select min(scores) as minscores from user group by class) as t;
+select * from user where scores=any(select min(scores) from user group by class);
+
+select sum(scores) as 最低分之和 from user where scores=any(select min(scores) from user group by class);

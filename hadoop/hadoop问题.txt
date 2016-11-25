@@ -1,0 +1,15 @@
+1.NameNode 无法启动，改变tmp文件夹权限，然后hdfs namenode -format 格式化hdfs
+2.NameNode 格式化出错，先start-dfs.sh 然后进行格式化
+3.hdfs 格式化后 要将元数据复制到其他NameNode，否则其他NameNode进程不启动
+4.Hive是建立在hadoop的数据仓库基础架构，提供了一系列工具，进行数据提取转化加载，这是一种可以存储、查询和分析存储在hadoop中的大规模数据的机制。
+Hive有简单的SQL查询语言，成为QL。
+Hive是SQL的解析引擎，将SQL语句转化为M/R，在hadoop执行。
+Hive的表其实就是HDFS的目录/文件夹，按表名把文件夹分开，如果是分区表，则分区值是子文件夹
+
+5.用户接口：CLI、JDBC/ODBC和WebGUI
+CLI:即Shell命令行
+JDBC/ODBC：与MySQL JDBC的方式类似
+WebGUI：通过浏览器访问Hive
+将元数据存储在数据库中（metastore），支持mysql、derby、Hive的元数据包括表的名字，表的列和分区及其属性，表的属性（是否为外部表等），表的数据所在目录等
+Hive的数据存储在HDFS，大部分的查询由MapReduce完成，比如select *from table 不会生成MapReduce任务
+

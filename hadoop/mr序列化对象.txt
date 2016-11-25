@@ -1,0 +1,1 @@
+mr序列化对象，bean的toString方法要重写，写入文件的是hashcode,而不是对应的字段值
