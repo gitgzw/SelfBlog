@@ -1,0 +1,31 @@
+压缩存储有时候可以获得更好的性能。
+
+ 
+
+使用TextFile存储时，可以使用GZIP或者BZIP2进行压缩。操作如下
+
+CREATE TABLE raw (line STRING) ROW FORMAT DELIMITED FIELDSTERMINATED BY '\t' LINES TERMINATED BY '\n';
+
+LOAD DATA LOCAL INPATH '/tmp/weblogs/20090603-access.log.gz' INTOTABLE raw;
+
+以上操作的缺点是Hive在查询时不能分隔压缩文件，不能并行执行map，只能执行一个map。
+
+ 
+
+更好的方式是如下操作：
+
+CREATE TABLE raw (line STRING) ROW FORMAT DELIMITED FIELDSTERMINATED BY '\t' LINES TERMINATED BY '\n';
+
+CREATE TABLE raw_sequence (line STRING) STORED AS SEQUENCEFILE;
+
+LOAD DATA LOCAL INPATH '/tmp/weblogs/20090603-access.log.gz' INTOTABLE raw;
+
+ 
+
+SET hive.exec.compress.output=true;
+
+SET io.seqfile.compression.type=BLOCK; -- NONE/RECORD/BLOCK (seebelow)
+
+INSERT OVERWRITE TABLE raw_sequence SELECT * FROM raw;
+
+把数据插入到另一张表。另一种表使用SequenceFile存储。

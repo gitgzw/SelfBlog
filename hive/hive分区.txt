@@ -1,0 +1,10 @@
+1.create external table beauties (id bigint,name string) partitioned by (name string) row format delimited fields terminated by '\t' location '/beauty';
+2.load data local inpath '/text.txt' into table beauties partition (name='');
+
+3.alter table beauties add partition (nation='Japan') location "/beauty/name=Japan";
+
+4.select *from where nation='China';
+
+5.select count(1) from test_ext_part where country='China' group by (name='hello');
+
+6. alter table test_ext_part drop partition (country='China');

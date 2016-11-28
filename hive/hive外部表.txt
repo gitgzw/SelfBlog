@@ -1,0 +1,9 @@
+1.
+create external table ext_student (id int,name string) row format delimited fields terminated by '\t' location '/data';
+
+2.
+create external table ext_student (id int,name string) row format delimited fields terminated by '\t';
+
+load data local inpath '/root/test.txt' into table ext_student ;
+
+select *from ext_student;гаЪ§Он

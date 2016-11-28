@@ -1,0 +1,6 @@
+show tables;
+show databases;
+show partitions;
+show functions;
+desc extended t_name;
+desc formatted table_name;
