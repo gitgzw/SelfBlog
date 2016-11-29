@@ -1,0 +1,2 @@
+1.
+create table test_buk(id int,name string) clustered by (id) sorted by (id) into 4 buckets row format delimited fields terminated by ',';

@@ -1,0 +1,6 @@
+1.表不存在
+create table tmp as select *from user;
+create table tmp select *from user;
+
+2.表存在
+insert into table tmp selelct *from user;

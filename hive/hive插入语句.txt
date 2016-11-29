@@ -1,0 +1,2 @@
+1.查询结果插入表
+insert overwrite table test [partition (partcol=1)] select from othertable;
