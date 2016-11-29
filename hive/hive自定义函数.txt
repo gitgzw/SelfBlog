@@ -13,3 +13,16 @@ hive> select id, getAreaName(id) as name from tel_rec;
 
 
 create table result row format delimited fields terminated by '\t' as select id, getNation(nation) from beauties;
+
+1.
+add jar /root/json.jar;
+
+2.
+create temporary function jsonparse as 'com.gzw.bigdata.udf.JsonParser';
+
+3.
+create table t_rating as
+select split(parsejson(line),'\t')[0] as movieid,
+split(parsejson(line),'\t')[1] as rate,
+split(parsejson(line),'\t')[2] as timestring,
+split(parsejson(line),'\t')[3] as uid from t_json limit 10;

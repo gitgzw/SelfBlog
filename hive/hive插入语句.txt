@@ -1,2 +1,5 @@
 1.查询结果插入表
 insert overwrite table test [partition (partcol=1)] select from othertable;
+
+2.新建表
+create table tmp as select *from test;
