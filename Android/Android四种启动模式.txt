@@ -1,5 +1,0 @@
-singleTop：如果有activity实例位于栈顶，当其他activity或	  自己启动该activity的时候，不产生新的实例并调	 用onNewIntent方法，否则会产生新的实例，并且不        会将之前的activity实例弹出栈
-singleTask：如果不存在，则生成新的实例，并置于栈顶	
-	    如果存在，则将实例之上的activity全部弹出，            并且调用onNewIntent方法
-singleInstance：
-　　　　此启动模式和我们使用的浏览器工作原理类似，我们都知道在多个程序中访问浏览器时，如果当前浏览器没有打开，则打开浏览器，否则会在当前打开的浏览器中访问。此模式会节省大量的系统资源，因为他能保证要请求的Activity对象在当前的栈中只存在一个
